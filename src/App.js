@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class App extends Component {
   render() {
     return (
       <div className="container">
         <br/>
-        <h1 className="jumbotron-heading text-center"> { this.props.value } </h1>
+    <h1 className="jumbotron-heading text-center"> { this.props.counter } </h1>
         <p className="text-center">
           <button onClick={ this.props.onIncrement } className="btn btn-primary mr-2">Increase</button>
           <button onClick={ this.props.onDecrement } className="btn btn-danger my-2">Decrease</button>
@@ -15,5 +16,11 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    counter: state,
+  }
+}
 
-export default App;
+export default connect(mapStateToProps)(App);
