@@ -19,7 +19,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    counter: state,
+    counter: state.counter,
   }
 }
 

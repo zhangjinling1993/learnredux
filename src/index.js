@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
-import counter from './reducer/counter';
+import rootReducer from './reducer/index';
 import { increment, decrement } from './actions/index'
 import { Provider } from 'react-redux'
 
-const store = createStore(counter);
+const store = createStore(rootReducer);
 
 // store.subscribe(() => console.log("State updated", store.getState()));
 
