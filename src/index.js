@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
-import counter from './reducer/counter'
+import counter from './reducer/counter';
+import { increment, decrement } from './actions/index';
 
 const store = createStore(counter);
 
@@ -12,8 +13,8 @@ const store = createStore(counter);
 const render = () => {
     ReactDOM.render(
         <App 
-            onIncrement = {() => store.dispatch({ type: "Increment" })} 
-            onDecrement = {() => store.dispatch({ type: "Decrement" })}
+            onIncrement = {() => store.dispatch(increment())} 
+            onDecrement = {() => store.dispatch(decrement())}
             value={store.getState()}
         />, document.getElementById('root'));
 }
