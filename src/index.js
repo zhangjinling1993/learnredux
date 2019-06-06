@@ -1,23 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Counter from './components/counter';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
-import rootReducer from './reducer/index';
-import { increment, decrement } from './actions/index'
-import { Provider } from 'react-redux'
+import reduce from './reducers';
 
-const store = createStore(rootReducer);
-
-// store.subscribe(() => console.log("State updated", store.getState()));
+const store = createStore(reduce);
 
 const render = () => {
     ReactDOM.render(
-        <Provider store={ store }>
-            <App onIncrement = {() => store.dispatch(increment())} 
-                 onDecrement = {() => store.dispatch(decrement())}/>
-        </Provider>,
-        document.getElementById('root'));
+        <Counter
+            value={store.getState()}
+            onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
+            onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
+        />,
+        document.getElementById('root')
+    )
 }
 
 render();
