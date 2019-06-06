@@ -9,7 +9,12 @@ class Counter extends Component {
     render() {
         const { value, onIncrement, onDecrement } = this.props;
         return (
-            <div style={{ textAlign: "center", width: 200, padding: 20, border: "1px solid #007bff"}}>
+            <div style={{ 
+                    textAlign: "center",
+                    width: 200, padding: 20,
+                    border: "1px solid #007bff",
+                    margin: '100px auto 100px auto'
+                }}>
                 <p>{ value }</p>
                 <button onClick={onIncrement} className="btn btn-primary btn-sm"> + </button>
                 &nbsp;
